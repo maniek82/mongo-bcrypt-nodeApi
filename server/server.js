@@ -12,7 +12,8 @@ const {User }  = require ('./models/user');
 
 mongoose.Promise = global.Promise;
 const url = 'mongodb://localhost:27017/auth';
-mongoose.connect(url,{ useNewUrlParser: true });
+
+mongoose.connect(process.env.MONGODB_URI || url,{ useNewUrlParser: true });
 
 
 app.post('/api/user',(req,res)=> {
